@@ -1,0 +1,49 @@
+@use '../helpers' as *;
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.article-meta__item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: var(--role-text-muted);
+  font-size: var(--type-caption);
+  line-height: var(--leading-caption);
+}
+
+.article-meta__item + .article-meta__item::before {
+  content: '';
+  display: inline-block;
+  inline-size: 4px;
+  block-size: 4px;
+  margin-inline: 0 8px;
+  border-radius: 50%;
+  background: var(--role-border-soft);
+}
+
+.article-meta__value {
+  color: inherit;
+}
+
+@include media-down(xs) {
+  .article-meta {
+    display: grid;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+  }
+
+  .article-meta__item {
+    display: block;
+  }
+
+  .article-meta__item + .article-meta__item::before {
+    content: none;
+  }
+}

@@ -1,0 +1,55 @@
+<link
+  rel="preload"
+  href="fonts/PlusJakartaSans-Regular.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="fonts/PlusJakartaSans-Medium.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="fonts/PlusJakartaSans-SemiBold.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="fonts/PlusJakartaSans-Bold.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+
+@if (typeof pageStyles !== 'undefined' && pageStyles === 'home' && !String(pageStyles).startsWith('@')) {
+<link
+  rel="preload"
+  href="images/hero/hero-rocket-240.avif"
+  imagesrcset="
+    images/hero/hero-rocket-240.avif 240w,
+    images/hero/hero-rocket-320.avif 320w,
+    images/hero/hero-rocket-480.avif 480w,
+    images/hero/hero-rocket-640.avif 640w,
+    images/hero/hero-rocket-1060.avif 1060w
+  "
+  imagesizes="(max-width: 480px) 120px, (max-width: 575px) 188px, (max-width: 1023px) 306px, (max-width: 1279px) 530px, (max-width: 1439px) 640px, 760px"
+  as="image"
+  type="image/avif"
+/>
+}
+
+@if (typeof pageStyles !== 'undefined' && pageStyles === 'error' && !String(pageStyles).startsWith('@')) {
+<link
+  rel="preload"
+  href="images/error/error-404.avif"
+  imagesrcset="images/error/error-404.avif 1x, images/error/error-404@2x.avif 2x"
+  as="image"
+  type="image/avif"
+/>
+}

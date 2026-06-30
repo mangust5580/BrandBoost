@@ -1,0 +1,145 @@
+@use '../helpers' as *;
+
+:root {
+  --type-h1: #{fluid(64, 34)};
+  --type-h2: #{fluid(46, 27)};
+  --type-h3: #{fluid(36, 22)};
+  --type-h4: #{fluid(29, 21)};
+  --type-h5: #{fluid(23, 17)};
+  --type-h6: #{fluid(18, 16)};
+  --type-body: #{fluid(17, 15)};
+  --type-small: #{fluid(15, 14)};
+  --type-caption: #{fluid(14, 13)};
+  --type-label: #{fluid(16, 14)};
+  --type-button: #{fluid(16, 14)};
+  --leading-h1: 1.08;
+  --leading-h2: 1.16;
+  --leading-h3: 1.2;
+  --leading-h4: 1.26;
+  --leading-h5: 1.32;
+  --leading-h6: 1.42;
+  --leading-body: 1.58;
+  --leading-small: 1.54;
+  --leading-caption: 1.52;
+  --leading-label: 1.4;
+  --leading-button: 1.2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: inherit;
+  font-family: var(--font-family-ui);
+  text-wrap: balance;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+
+body {
+  font-size: var(--type-body);
+  font-weight: 400;
+  line-height: var(--leading-body);
+}
+
+h1 {
+  font-size: var(--type-h1);
+  line-height: var(--leading-h1);
+  letter-spacing: 0;
+}
+
+h2 {
+  font-size: var(--type-h2);
+  line-height: var(--leading-h2);
+  letter-spacing: 0;
+}
+
+h3 {
+  font-size: var(--type-h3);
+  line-height: var(--leading-h3);
+  letter-spacing: 0;
+}
+
+h4 {
+  font-size: var(--type-h4);
+  line-height: var(--leading-h4);
+  letter-spacing: 0;
+}
+
+h5 {
+  font-size: var(--type-h5);
+  line-height: var(--leading-h5);
+  letter-spacing: 0;
+}
+
+h6 {
+  font-size: var(--type-h6);
+  line-height: var(--leading-h6);
+  letter-spacing: 0;
+}
+
+p {
+  margin: 0;
+  color: var(--role-text-primary);
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
+}
+
+small {
+  margin: 0;
+  color: var(--role-text-secondary);
+  font-size: var(--type-small);
+  font-weight: 400;
+  line-height: var(--leading-small);
+}
+
+label {
+  margin: 0;
+  color: var(--role-text-primary);
+  font-size: var(--type-label);
+  font-weight: 600;
+  line-height: var(--leading-label);
+  letter-spacing: 0;
+}
+
+.text-body {
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
+}
+
+.text-small {
+  font-size: var(--type-small);
+  line-height: var(--leading-small);
+}
+
+.text-caption {
+  font-size: var(--type-caption);
+  line-height: var(--leading-caption);
+}
+
+.text-label {
+  font-size: var(--type-label);
+  font-weight: 600;
+  line-height: var(--leading-label);
+  letter-spacing: 0;
+}
+
+.text-button {
+  font-size: var(--type-button);
+  font-weight: 600;
+  line-height: var(--leading-button);
+  letter-spacing: 0;
+}

@@ -1,0 +1,9 @@
+.label {
+  display: inline-block;
+  margin: 0;
+  color: var(--label-color, var(--role-text-primary));
+  font-size: var(--type-label);
+  font-weight: 600;
+  line-height: var(--leading-label);
+  letter-spacing: 0;
+}

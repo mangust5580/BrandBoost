@@ -1,0 +1,181 @@
+﻿@use '../helpers' as *;
+
+.button {
+  --button-min-height: var(--control-button-height-md);
+  --button-padding-inline: var(--control-button-padding-inline-md);
+  --button-border: 1px solid var(--role-transparent);
+  --button-radius: var(--control-button-radius-pill);
+  --button-background: var(--role-surface-base);
+  --button-shadow: none;
+  --button-color: var(--role-text-primary);
+  --button-font-size: var(--type-button);
+  --button-font-weight: 600;
+  --button-line-height: var(--leading-button);
+  --button-gap: var(--space-xs);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-gap);
+  inline-size: fit-content;
+  min-block-size: var(--button-min-height);
+  padding-inline: var(--button-padding-inline);
+  border: var(--button-border);
+  border-radius: var(--button-radius);
+  background: var(--button-background);
+  box-shadow: var(--button-shadow);
+  color: var(--button-color);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  line-height: var(--button-line-height);
+  white-space: nowrap;
+  cursor: pointer;
+
+  @include transition((transform, box-shadow, border-color, background, color), 220ms);
+
+  @include hover {
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    transform: translateY(-1px);
+  }
+}
+
+.button__icon {
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.button--primary {
+  --button-border: 1px solid var(--role-border-accent-soft);
+  --button-background: var(--gradient-accent-action-vertical);
+  --button-shadow: var(--shadow-md);
+  --button-color: var(--role-text-inverse);
+}
+
+.button--primary:is(:hover, :focus-visible) {
+  box-shadow: var(--shadow-lg);
+}
+
+.button--secondary {
+  --button-border: 1px solid var(--role-border-soft);
+  --button-background: var(--role-surface-base);
+  --button-shadow: var(--shadow-button-secondary);
+  --button-color: var(--role-text-brand-strong);
+}
+
+.button--secondary:is(:hover, :focus-visible) {
+  --button-border: 1px solid var(--role-border-soft-hover);
+  --button-background: var(--role-surface-base-soft);
+}
+
+.button--ghost {
+  --button-border: 1px solid var(--role-border-inverse-strong);
+  --button-background: var(--role-transparent);
+  --button-shadow: none;
+  --button-color: var(--role-text-inverse-strong);
+}
+
+.button--ghost:is(:hover, :focus-visible) {
+  --button-background: var(--role-surface-glass);
+}
+
+.button--primary-strong {
+  --button-border: 1px solid var(--role-border-accent-strong);
+  --button-radius: var(--control-button-radius-rect);
+  --button-background: var(--gradient-accent-action-vertical-strong);
+  --button-shadow: var(--shadow-sm);
+  --button-color: var(--role-text-inverse);
+}
+
+.button--primary-strong:is(:hover, :focus-visible) {
+  box-shadow: var(--shadow-lg);
+}
+
+.button--sm {
+  --button-min-height: var(--control-button-height-sm);
+  --button-padding-inline: var(--control-button-padding-inline-sm);
+  --button-font-size: var(--type-small);
+}
+
+.button--md {
+  --button-min-height: var(--control-button-height-md);
+  --button-padding-inline: var(--control-button-padding-inline-md);
+}
+
+.button--lg {
+  --button-min-height: var(--control-button-height-lg);
+  --button-padding-inline: var(--control-button-padding-inline-lg);
+  --button-font-size: var(--type-label);
+}
+
+.button--icon-expand {
+  --button-min-height: var(--space-5xl);
+  --button-padding-inline: 0;
+  --button-border: 1px solid var(--role-border-accent-fade);
+  --button-radius: var(--radius-lg);
+  --button-background: var(--role-surface-accent-soft);
+  --button-shadow: var(--shadow-button-icon);
+  --button-color: var(--role-text-accent-strong);
+  --button-gap: 0;
+
+  @include square(var(--space-5xl));
+
+  justify-content: center;
+}
+
+.button--icon-expand .button__label {
+  display: none;
+}
+
+.button--icon-expand .button__icon {
+  font-size: 32px;
+
+  @include transition((color, transform), 220ms);
+}
+
+.button--icon-expand:is(:hover, :focus-visible) {
+  background: var(--role-surface-accent-soft-hover);
+  box-shadow: var(--shadow-button-icon-hover);
+  color: var(--role-text-accent-strong-hover);
+}
+
+.button--icon-expand:is(:hover, :focus-visible) .button__icon {
+  transform: translateX(1px);
+}
+
+.button--about {
+  --button-min-height: var(--control-button-height-md);
+  --button-padding-inline: var(--control-button-padding-inline-md);
+  --button-border: 1px solid var(--role-border-inverse-strong);
+  --button-background: var(--role-transparent);
+  --button-shadow: none;
+  --button-color: var(--role-text-inverse-strong);
+}
+
+.button--about:is(:hover, :focus-visible) {
+  --button-background: var(--role-surface-glass);
+}
+
+.button--services {
+  --button-padding-inline: var(--control-button-padding-inline-lg);
+}
+
+@include media-down(md) {
+  .button--header-menu {
+    --button-min-height: 40px;
+    --button-padding-inline: 22px;
+    --button-font-size: var(--type-button);
+  }
+}
+
+@include media-between(md, lg) {
+  .button--header-desktop {
+    --button-min-height: 38px;
+    --button-padding-inline: 18px;
+    --button-font-size: var(--type-small);
+  }
+}
+
+

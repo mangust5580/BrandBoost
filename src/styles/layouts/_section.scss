@@ -1,0 +1,104 @@
+@use '../helpers' as *;
+
+.section {
+  --section-padding-top: var(--layout-section-padding-y-lg);
+  --section-padding-bottom: var(--layout-section-padding-y-lg);
+  --section-header-max-inline-size: 760px;
+  --section-title-max-inline-size: 740px;
+  --section-lead-max-inline-size: 640px;
+  --section-header-align: center;
+  --section-title-margin-inline: auto;
+  --section-lead-margin-inline: auto;
+  --section-eyebrow-line-size: 18px;
+
+  position: relative;
+  padding-block: var(--section-padding-top) var(--section-padding-bottom);
+}
+
+.section__container {
+  inline-size: 100%;
+}
+
+.section__header {
+  max-inline-size: var(--section-header-max-inline-size);
+  margin: 0 auto;
+  text-align: var(--section-header-align);
+}
+
+.section__eyebrow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+  color: var(--section-eyebrow-color);
+  font-size: var(--type-small);
+  font-weight: 600;
+  line-height: var(--leading-small);
+}
+
+.section__eyebrow::before,
+.section__eyebrow::after {
+  content: '';
+  display: inline-block;
+  inline-size: var(--section-eyebrow-line-size);
+  block-size: 1px;
+  background: currentcolor;
+}
+
+.section__title {
+  max-inline-size: var(--section-title-max-inline-size);
+  margin-inline: var(--section-title-margin-inline);
+  margin-top: 12px;
+  color: var(--section-title-color);
+}
+
+.section__lead {
+  max-inline-size: var(--section-lead-max-inline-size);
+  margin-inline: var(--section-lead-margin-inline);
+  margin-top: 14px;
+  color: var(--section-lead-color);
+  text-wrap: pretty;
+}
+
+.section--light {
+  --section-eyebrow-color: var(--role-text-accent-emphasis);
+  --section-title-color: var(--role-text-brand-strong);
+  --section-lead-color: var(--role-text-secondary);
+
+  background-color: var(--role-surface-page);
+  color: var(--role-text-primary);
+}
+
+.section--dark {
+  --section-eyebrow-color: var(--role-text-inverse-strong);
+  --section-title-color: var(--role-text-inverse);
+  --section-lead-color: var(--role-text-inverse-muted);
+
+  background-color: var(--role-surface-hero);
+  background-image: var(--gradient-brand-surface-horizontal);
+  color: var(--role-text-inverse);
+}
+
+@include media-down(lg) {
+  .section {
+    --section-padding-top: var(--layout-section-padding-y-md);
+    --section-padding-bottom: var(--layout-section-padding-y-md);
+  }
+
+  .section__title {
+    margin-top: var(--space-sm);
+  }
+
+  .section__lead {
+    margin-top: 14px;
+  }
+}
+
+@include media-down(sm) {
+  .section {
+    --section-padding-top: var(--layout-section-padding-y-sm);
+    --section-padding-bottom: var(--layout-section-padding-y-sm);
+  }
+}

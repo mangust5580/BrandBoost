@@ -1,0 +1,16 @@
+<head>
+  @include('shared/head/meta.html', {
+  "pageTitle": "@pageTitle",
+  "pageDescription": "@pageDescription",
+  "pageCanonical": "@pageCanonical",
+  "pageRobots": "@pageRobots",
+  "pageOgType": "@pageOgType",
+  "ogImage": "@ogImage"
+  })
+  @include('shared/head/favicons.html')
+  @include('shared/head/preload.html', {
+  "pageStyles": "@pageStyles"
+  })
+  @include('shared/head/styles.html')
+  @include('shared/head/scripts.html')
+</head>

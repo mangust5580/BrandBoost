@@ -1,0 +1,41 @@
+@use '../helpers' as *;
+
+.input {
+  --input-min-height: var(--control-field-height);
+  --input-padding-inline: var(--control-field-padding-inline);
+  --input-border-color: var(--role-border-field);
+  --input-background-color: var(--role-surface-base);
+  --input-text-color: var(--role-text-primary);
+  --input-placeholder-color: var(--role-text-placeholder);
+  --input-focus-border-color: var(--role-accent-focus);
+  --input-focus-shadow: 0 0 0 3px var(--role-focus-ring);
+
+  display: block;
+  inline-size: 100%;
+  min-block-size: var(--input-min-height);
+  padding-inline: var(--input-padding-inline);
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--control-field-radius);
+  background-color: var(--input-background-color);
+  color: var(--input-text-color);
+  font-size: var(--type-body);
+  font-weight: 400;
+  line-height: var(--leading-body);
+
+  @include transition((border-color, background-color, color, box-shadow), 180ms);
+}
+
+.input::placeholder {
+  opacity: 100%;
+  color: var(--input-placeholder-color);
+}
+
+.input:focus-visible {
+  border-color: var(--input-focus-border-color);
+  box-shadow: var(--input-focus-shadow);
+}
+
+.input:disabled {
+  opacity: 60%;
+  cursor: not-allowed;
+}

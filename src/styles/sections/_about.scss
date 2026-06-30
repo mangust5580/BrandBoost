@@ -1,0 +1,125 @@
+@use '../helpers' as *;
+
+.about {
+  position: relative;
+  overflow: hidden;
+}
+
+@supports (overflow: clip) {
+  .about {
+    overflow: clip;
+  }
+}
+
+.about::before {
+  @include pseudo($inset: auto);
+  @include size(fluid(720, 440), fluid(720, 440));
+
+  top: fluid(-160, -260);
+  right: fluid(-120, -180);
+  opacity: 15%;
+  border-radius: 50%;
+  background: var(--gradient-brand-glow-radial);
+  pointer-events: none;
+  filter: blur(12px);
+}
+
+.about__header {
+  --section-header-max-inline-size: 900px;
+  --section-title-max-inline-size: 940px;
+  --section-lead-max-inline-size: 760px;
+  --section-eyebrow-line-size: 24px;
+}
+
+.about__header .section__title {
+  margin-top: 14px;
+}
+
+.about__header .section__lead {
+  margin-top: 14px;
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
+}
+
+.about__body {
+  display: grid;
+  grid-template-columns: minmax(340px, 0.95fr) minmax(0, 1fr);
+  align-items: center;
+  gap: fluid(56, 28);
+  margin-top: fluid(52, 32);
+}
+
+.about__media {
+  max-inline-size: 552px;
+  margin: 0;
+}
+
+.about__image {
+  @include size(100%, auto);
+}
+
+.about__content {
+  max-inline-size: var(--measure-copy);
+}
+
+.about__text {
+  color: var(--role-text-inverse-muted);
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
+  text-wrap: pretty;
+}
+
+.about__text + .about__text {
+  margin-top: 16px;
+}
+
+.about__cta {
+  margin-top: 28px;
+}
+
+@include media-down(xl) {
+  .about__body {
+    grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1fr);
+    gap: fluid-to(38, 22, xl);
+  }
+}
+
+@include media-down(lg) {
+  .about__header {
+    --section-header-max-inline-size: 800px;
+  }
+
+  .about__header .section__title {
+    margin-top: var(--space-sm);
+  }
+
+  .about__header .section__lead {
+    margin-top: 14px;
+  }
+
+  .about__body {
+    grid-template-columns: 1fr;
+    row-gap: var(--space-xl);
+    margin-top: 30px;
+  }
+
+  .about__media,
+  .about__content {
+    max-inline-size: min(100%, 620px);
+    margin-inline: auto;
+  }
+
+  .about__content {
+    text-align: center;
+  }
+}
+
+@include media-down(sm) {
+  .about__header {
+    --section-eyebrow-line-size: 18px;
+  }
+
+  .about__cta {
+    margin-top: 22px;
+  }
+}

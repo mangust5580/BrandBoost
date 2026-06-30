@@ -1,0 +1,18 @@
+@use '../helpers' as *;
+
+.logo {
+  // 162x60 source logo ratio -> compact header/footer lockup.
+  --logo-width: #{fluid(124, 108)};
+
+  display: inline-flex;
+  inline-size: fit-content;
+}
+
+.logo__image {
+  display: block;
+  width: var(--logo-width);
+  height: auto;
+  object-fit: contain;
+
+  @include transition(width, 220ms);
+}

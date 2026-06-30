@@ -1,0 +1,94 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+@if (typeof pageRobots !== 'undefined' && pageRobots && !String(pageRobots).startsWith('@')) {
+<meta name="robots" content="@pageRobots" />
+}
+
+@if (typeof pageRobots === 'undefined' || !pageRobots || String(pageRobots).startsWith('@')) {
+<meta name="robots" content="index,follow" />
+}
+
+@if (typeof pageTitle !== 'undefined' && pageTitle && !String(pageTitle).startsWith('@')) {
+<title>@pageTitle</title>
+}
+
+@if (typeof pageTitle === 'undefined' || !pageTitle || String(pageTitle).startsWith('@')) {
+<title>BrandBoost</title>
+}
+
+@if (typeof pageDescription !== 'undefined' && pageDescription && !String(pageDescription).startsWith('@')) {
+<meta name="description" content="@pageDescription" />
+}
+
+@if (typeof pageDescription === 'undefined' || !pageDescription || String(pageDescription).startsWith('@')) {
+<meta name="description" content="BrandBoost landing page" />
+}
+
+@if (typeof pageCanonical !== 'undefined' && pageCanonical && !String(pageCanonical).startsWith('@')) {
+<link rel="canonical" href="@pageCanonical" />
+<meta property="og:url" content="@pageCanonical" />
+}
+
+
+<meta property="og:site_name" content="BrandBoost" />
+<meta property="og:locale" content="ru_RU" />
+@if (typeof pageOgType !== 'undefined' && pageOgType && !String(pageOgType).startsWith('@')) {
+<meta property="og:type" content="@pageOgType" />
+}
+
+@if (typeof pageOgType === 'undefined' || !pageOgType || String(pageOgType).startsWith('@')) {
+<meta property="og:type" content="website" />
+}
+
+@if (typeof pageTitle !== 'undefined' && pageTitle && !String(pageTitle).startsWith('@')) {
+<meta property="og:title" content="@pageTitle" />
+}
+
+@if (typeof pageTitle === 'undefined' || !pageTitle || String(pageTitle).startsWith('@')) {
+<meta property="og:title" content="BrandBoost" />
+}
+
+@if (typeof pageDescription !== 'undefined' && pageDescription && !String(pageDescription).startsWith('@')) {
+<meta property="og:description" content="@pageDescription" />
+}
+
+@if (typeof pageDescription === 'undefined' || !pageDescription || String(pageDescription).startsWith('@')) {
+<meta property="og:description" content="BrandBoost landing page" />
+}
+
+@if (typeof ogImage !== 'undefined' && ogImage && !String(ogImage).startsWith('@')) {
+<meta property="og:image" content="https://mangust5580.github.io/BrandBoost/@ogImage" />
+}
+
+@if (typeof ogImage === 'undefined' || !ogImage || String(ogImage).startsWith('@')) {
+<meta property="og:image" content="https://mangust5580.github.io/BrandBoost/images/og/index.jpg" />
+}
+
+
+<meta name="twitter:card" content="summary_large_image" />
+
+@if (typeof pageTitle !== 'undefined' && pageTitle && !String(pageTitle).startsWith('@')) {
+<meta name="twitter:title" content="@pageTitle" />
+}
+
+@if (typeof pageTitle === 'undefined' || !pageTitle || String(pageTitle).startsWith('@')) {
+<meta name="twitter:title" content="BrandBoost" />
+}
+
+@if (typeof pageDescription !== 'undefined' && pageDescription && !String(pageDescription).startsWith('@')) {
+<meta name="twitter:description" content="@pageDescription" />
+}
+
+@if (typeof pageDescription === 'undefined' || !pageDescription || String(pageDescription).startsWith('@')) {
+<meta name="twitter:description" content="BrandBoost landing page" />
+}
+
+@if (typeof ogImage !== 'undefined' && ogImage && !String(ogImage).startsWith('@')) {
+<meta name="twitter:image" content="https://mangust5580.github.io/BrandBoost/@ogImage" />
+}
+
+@if (typeof ogImage === 'undefined' || !ogImage || String(ogImage).startsWith('@')) {
+<meta name="twitter:image" content="https://mangust5580.github.io/BrandBoost/images/og/index.jpg" />
+}

@@ -1,0 +1,72 @@
+@use '../helpers' as *;
+
+.container {
+  inline-size: 100%;
+  max-inline-size: var(--layout-container-max);
+  margin-inline: auto;
+  padding-inline: var(--layout-container-inline);
+}
+
+.measure-copy {
+  max-inline-size: var(--measure-copy);
+}
+
+.measure-copy--narrow {
+  max-inline-size: var(--measure-copy-narrow);
+}
+
+.visually-hidden:not(:focus, :active) {
+  @include visually-hidden;
+}
+
+.visually-hidden:focus-visible {
+  position: fixed;
+  inset-block-start: var(--space-sm);
+  inset-inline-start: var(--space-sm);
+  z-index: var(--z-index-skip-link);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  background-color: var(--role-surface-base);
+  box-shadow: var(--shadow-focus);
+  color: var(--role-text-primary);
+}
+
+.hidden-mobile {
+  @include media-down(md) {
+    display: none !important;
+  }
+}
+
+.visible-mobile {
+  @include media-up(md) {
+    display: none !important;
+  }
+}
+
+.hidden-tablet {
+  @include media-between(sm, lg) {
+    display: none !important;
+  }
+}
+
+.visible-tablet {
+  display: none !important;
+
+  @include media-between(sm, lg) {
+    display: block !important;
+  }
+}
+
+.hidden-desktop {
+  @include media-up(lg) {
+    display: none !important;
+  }
+}
+
+.visible-desktop {
+  display: none !important;
+
+  @include media-up(lg) {
+    display: block !important;
+  }
+}

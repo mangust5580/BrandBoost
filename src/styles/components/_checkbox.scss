@@ -1,0 +1,108 @@
+@use '../helpers' as *;
+
+.checkbox {
+  --checkbox-size: 20px;
+  --checkbox-radius: 7px;
+  --checkbox-gap: 12px;
+  --checkbox-border-color: var(--role-border-field);
+  --checkbox-background-color: var(--role-surface-base);
+  --checkbox-check-color: var(--role-text-inverse);
+  --checkbox-checked-border-color: var(--role-accent-primary);
+  --checkbox-checked-background-color: var(--role-accent-primary);
+  --checkbox-focus-border-color: var(--role-accent-focus);
+  --checkbox-focus-shadow: 0 0 0 3px var(--role-focus-ring);
+  --checkbox-label-color: var(--role-text-secondary);
+  --checkbox-link-color: var(--role-text-primary);
+  --checkbox-error-border-color: var(--role-accent-primary);
+  --checkbox-error-shadow: 0 0 0 2px var(--role-focus-ring);
+
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--checkbox-gap);
+  color: var(--checkbox-label-color);
+  font-size: var(--type-body);
+  font-weight: 400;
+  line-height: var(--leading-body);
+  cursor: pointer;
+}
+
+.checkbox__input {
+  position: absolute;
+  inset: 0 auto auto 0;
+  z-index: var(--z-index-decor);
+  opacity: 0%;
+  inline-size: var(--checkbox-size);
+  block-size: var(--checkbox-size);
+  margin: 0;
+  cursor: pointer;
+}
+
+.checkbox__control {
+  position: relative;
+  flex: none;
+  inline-size: var(--checkbox-size);
+  block-size: var(--checkbox-size);
+  margin-top: 1px;
+  border: 1px solid var(--checkbox-border-color);
+  border-radius: var(--checkbox-radius);
+  background-color: var(--checkbox-background-color);
+
+  @include transition((border-color, background-color, box-shadow), 180ms);
+}
+
+.checkbox__control::after {
+  content: '';
+  position: absolute;
+  inset: 3px 5px 4px;
+  opacity: 0%;
+  border-right: 2px solid var(--checkbox-check-color);
+  border-bottom: 2px solid var(--checkbox-check-color);
+  transform: rotate(45deg) scale(0);
+  transform-origin: center;
+
+  @include transition((transform, opacity), 140ms);
+}
+
+.checkbox__input:checked + .checkbox__control {
+  border-color: var(--checkbox-checked-border-color);
+  background-color: var(--checkbox-checked-background-color);
+}
+
+.checkbox__input:checked + .checkbox__control::after {
+  opacity: 100%;
+  transform: rotate(45deg) scale(1);
+}
+
+.checkbox__input:focus-visible + .checkbox__control {
+  border-color: var(--checkbox-focus-border-color);
+  box-shadow: var(--checkbox-focus-shadow);
+}
+
+.checkbox__input[aria-invalid='true'] + .checkbox__control {
+  border-color: var(--checkbox-error-border-color);
+  box-shadow: var(--checkbox-error-shadow);
+}
+
+.checkbox__text a {
+  box-shadow: inset 0 -1px 0 currentcolor;
+  color: var(--checkbox-link-color);
+
+  @include transition((color, box-shadow), 180ms);
+}
+
+.checkbox__text a:is(:hover, :focus-visible) {
+  box-shadow: inset 0 -2px 0 currentcolor;
+  color: var(--role-accent-primary);
+}
+
+.checkbox--inverse {
+  --checkbox-border-color: var(--role-border-field-inverse);
+  --checkbox-background-color: var(--role-surface-field-inverse);
+  --checkbox-focus-border-color: var(--role-border-focus-inverse);
+  --checkbox-focus-shadow: 0 0 0 3px var(--role-focus-ring-strong);
+  --checkbox-label-color: var(--role-text-inverse-muted);
+  --checkbox-link-color: var(--role-text-inverse);
+  --checkbox-error-border-color: var(--role-border-focus-inverse);
+  --checkbox-error-shadow: 0 0 0 2px var(--role-focus-ring-strong);
+}

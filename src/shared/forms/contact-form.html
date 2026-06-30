@@ -1,0 +1,79 @@
+<form
+  class="contact-form"
+  accept-charset="UTF-8"
+  novalidate
+  data-js-contact-form>
+  <p class="contact-form__hint" id="contact-required-hint">Поля, отмеченные *, обязательны.</p>
+
+  <div class="contact-form__field">
+    <label class="label" for="contact-name">Имя <span class="contact-form__required" aria-hidden="true">*</span></label>
+    <input
+      class="input"
+      id="contact-name"
+      name="name"
+      type="text"
+      placeholder="Ваше имя"
+      autocomplete="name"
+      required
+      aria-required="true"
+      aria-describedby="contact-required-hint contact-name-error" />
+    <p class="contact-form__error" id="contact-name-error" data-js-field-error hidden></p>
+  </div>
+
+  <div class="contact-form__field">
+    <label class="label" for="contact-email">Email <span class="contact-form__required" aria-hidden="true">*</span></label>
+    <input
+      class="input"
+      id="contact-email"
+      name="email"
+      type="email"
+      placeholder="name@company.com"
+      autocomplete="email"
+      required
+      aria-required="true"
+      aria-describedby="contact-required-hint contact-email-error" />
+    <p class="contact-form__error" id="contact-email-error" data-js-field-error hidden></p>
+  </div>
+
+  <div class="contact-form__field">
+    <label class="label" for="contact-phone">Телефон</label>
+    <input
+      class="input"
+      id="contact-phone"
+      name="phone"
+      type="tel"
+      placeholder="+7 (000) 000-00-00"
+      autocomplete="tel"
+      inputmode="tel"
+      aria-describedby="contact-phone-hint contact-phone-error"
+      data-js-contact-phone />
+    <p class="contact-form__help" id="contact-phone-hint">Укажите номер в международном формате при необходимости.</p>
+    <p class="contact-form__error" id="contact-phone-error" data-js-field-error hidden></p>
+  </div>
+
+  <div class="contact-form__field">
+    <label class="label" for="contact-message">Сообщение <span class="contact-form__required" aria-hidden="true">*</span></label>
+    <textarea
+      class="textarea"
+      id="contact-message"
+      name="message"
+      placeholder="Коротко опишите задачу"
+      required
+      aria-required="true"
+      aria-describedby="contact-required-hint contact-message-error"></textarea>
+    <p class="contact-form__error" id="contact-message-error" data-js-field-error hidden></p>
+  </div>
+
+  <div class="contact-form__field contact-form__field--consent">
+    <label class="checkbox checkbox--inverse contact-form__consent">
+      <input class="checkbox__input" type="checkbox" name="consent" required aria-required="true" aria-describedby="contact-consent-error" />
+      <span class="checkbox__control" aria-hidden="true"></span>
+      <span class="checkbox__text">Я согласен(на) с <a href="privacy.html">политикой конфиденциальности</a>.</span>
+    </label>
+    <p class="contact-form__error" id="contact-consent-error" data-js-field-error hidden></p>
+  </div>
+
+  <p class="contact-form__status" role="status" aria-live="polite" data-js-contact-form-status></p>
+
+  <button class="contact-form__submit button button--primary button--md" type="button" data-js-contact-form-submit>Отправить</button>
+</form>

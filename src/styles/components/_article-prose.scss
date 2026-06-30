@@ -1,0 +1,158 @@
+@use '../helpers' as *;
+
+.article-prose__section + .article-prose__section {
+  margin-top: var(--space-2xl);
+}
+
+.article-prose__section h2 {
+  margin: 0;
+  color: var(--role-text-brand-strong);
+  font-size: var(--type-h4);
+  line-height: var(--leading-h4);
+}
+
+.article-prose__section p {
+  margin-top: var(--space-sm);
+  color: var(--role-text-primary);
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
+}
+
+.article-prose__section ul,
+.article-prose__section ol {
+  margin: var(--space-sm) 0 0;
+  padding-left: var(--space-lg);
+  color: var(--role-text-primary);
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
+}
+
+.article-prose__section ul li + li,
+.article-prose__section ol li + li {
+  margin-top: var(--space-xs);
+}
+
+.article-prose__quote {
+  margin: var(--space-md) 0 0;
+  padding: var(--space-md);
+  border-left: 3px solid var(--role-accent-primary);
+  border-radius: 0 12px 12px 0;
+  background: var(--role-surface-accent-soft);
+}
+
+.article-prose__quote p {
+  margin-top: 0;
+}
+
+.article-prose__quote p + p {
+  margin-top: var(--space-xs);
+}
+
+.article-prose__table-wrap {
+  overflow-x: auto;
+  margin-top: var(--space-md);
+  border: 1px solid var(--role-border-soft);
+  border-radius: var(--radius-sm);
+}
+
+.article-prose__table {
+  inline-size: 100%;
+  background: var(--role-surface-base);
+  border-collapse: collapse;
+}
+
+.article-prose__table th,
+.article-prose__table td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--role-border-soft);
+  color: var(--role-text-primary);
+  font-size: var(--type-small);
+  line-height: var(--leading-small);
+  text-align: left;
+  vertical-align: top;
+}
+
+.article-prose__table th {
+  color: var(--role-text-brand-strong);
+  font-weight: 700;
+}
+
+.article-prose__table tr:last-child td,
+.article-prose__table tr:last-child th {
+  border-bottom: 0;
+}
+
+@include media-down(md) {
+  .article-prose__section + .article-prose__section {
+    margin-top: var(--space-xl);
+  }
+
+  .article-prose__table-wrap {
+    overflow-x: visible;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .article-prose__table,
+  .article-prose__table tbody,
+  .article-prose__table tr,
+  .article-prose__table th,
+  .article-prose__table td {
+    display: block;
+  }
+
+  .article-prose__table {
+    background: transparent;
+  }
+
+  .article-prose__table thead {
+    display: none;
+  }
+
+  .article-prose__table tbody {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .article-prose__table tr {
+    overflow: hidden;
+    border: 1px solid var(--role-border-soft);
+    border-radius: var(--radius-sm);
+    background: var(--role-surface-base);
+  }
+
+  .article-prose__table th,
+  .article-prose__table td {
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 0;
+  }
+
+  .article-prose__table th[scope='row'] {
+    border-bottom: 1px solid var(--role-border-soft);
+    color: var(--role-text-brand-strong);
+    font-size: var(--type-label);
+    line-height: var(--leading-label);
+  }
+
+  .article-prose__table td::before {
+    content: 'Возможные каналы';
+    display: block;
+    margin-bottom: var(--space-2xs);
+    color: var(--role-text-secondary);
+    font-size: var(--type-caption);
+    font-weight: 600;
+    line-height: var(--leading-caption);
+  }
+}
+
+@include media-down(xs) {
+  .article-prose__section h2 {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .article-prose__table th,
+  .article-prose__table td {
+    padding: 10px var(--space-sm);
+  }
+}

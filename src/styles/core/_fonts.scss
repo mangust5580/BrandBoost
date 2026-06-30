@@ -1,0 +1,5 @@
+@use '../helpers' as *;
+@include font-face('Plus Jakarta Sans', 'PlusJakartaSans-Regular', 400, normal, swap);
+@include font-face('Plus Jakarta Sans', 'PlusJakartaSans-Medium', 500, normal, swap);
+@include font-face('Plus Jakarta Sans', 'PlusJakartaSans-SemiBold', 600, normal, swap);
+@include font-face('Plus Jakarta Sans', 'PlusJakartaSans-Bold', 700, normal, swap);

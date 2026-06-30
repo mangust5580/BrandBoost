@@ -1,0 +1,43 @@
+@use '../helpers' as *;
+
+.textarea {
+  --textarea-min-block-size: var(--control-textarea-min-height);
+  --textarea-padding-block: var(--control-textarea-padding-block);
+  --textarea-padding-inline: var(--control-textarea-padding-inline);
+  --textarea-border-color: var(--role-border-field);
+  --textarea-background-color: var(--role-surface-base);
+  --textarea-text-color: var(--role-text-primary);
+  --textarea-placeholder-color: var(--role-text-placeholder);
+  --textarea-focus-border-color: var(--role-accent-focus);
+  --textarea-focus-shadow: 0 0 0 3px var(--role-focus-ring);
+
+  display: block;
+  inline-size: 100%;
+  min-block-size: var(--textarea-min-block-size);
+  padding: var(--textarea-padding-block) var(--textarea-padding-inline);
+  border: 1px solid var(--textarea-border-color);
+  border-radius: var(--control-field-radius);
+  background-color: var(--textarea-background-color);
+  color: var(--textarea-text-color);
+  font-size: var(--type-body);
+  font-weight: 400;
+  line-height: var(--leading-body);
+  resize: none;
+
+  @include transition((border-color, background-color, color, box-shadow), 180ms);
+}
+
+.textarea::placeholder {
+  opacity: 100%;
+  color: var(--textarea-placeholder-color);
+}
+
+.textarea:focus-visible {
+  border-color: var(--textarea-focus-border-color);
+  box-shadow: var(--textarea-focus-shadow);
+}
+
+.textarea:disabled {
+  opacity: 60%;
+  cursor: not-allowed;
+}

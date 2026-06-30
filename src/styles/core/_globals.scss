@@ -1,0 +1,71 @@
+@use '../helpers' as *;
+
+html {
+  --font-family-ui: var(--font-family-main);
+  --measure-copy: 660px;
+  --measure-copy-narrow: 560px;
+
+  min-inline-size: var(--layout-viewport-min);
+  background-color: var(--role-surface-page);
+}
+
+body {
+  min-inline-size: var(--layout-viewport-min);
+  background-color: var(--role-surface-page);
+  color: var(--role-text-primary);
+  font-family: var(--font-family-ui);
+  letter-spacing: 0;
+  text-rendering: optimizelegibility;
+  font-feature-settings: 'kern' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main[data-page-content],
+.section[id] {
+  scroll-margin-top: var(--layout-anchor-offset);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:not([class]) {
+  box-shadow: inset 0 -1px 0 currentcolor;
+  color: var(--role-text-brand-strong);
+
+  @include transition((color, box-shadow), 180ms);
+}
+
+a:not([class]):is(:hover, :focus-visible) {
+  box-shadow: inset 0 -2px 0 currentcolor;
+  color: var(--role-text-accent-strong);
+}
+
+a:focus-visible {
+  outline: none;
+}
+
+input,
+textarea {
+  inline-size: 100%;
+}
+
+:focus-visible {
+  outline: none;
+
+  @include ring-shadow;
+}
+
+::selection {
+  background: var(--role-accent-focus);
+  color: var(--role-text-inverse);
+}

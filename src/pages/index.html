@@ -1,0 +1,25 @@
+<!doctype html>
+<html class="page" lang="ru">
+  @include('shared/head/index.html', {
+  "pageTitle": "BrandBoost: рост выручки и лидов через performance-маркетинг",
+  "pageDescription": "BrandBoost помогает бизнесу расти: стратегия, SEO, PPC, аналитика и контент. Измеримые результаты и прозрачная отчётность.",
+  "pageCanonical": "https://mangust5580.github.io/BrandBoost/",
+  "ogImage": "images/og/index.jpg",
+  "pageStyles": "home"
+  })
+
+  <body data-page="home">
+    @include('shared/layout/skip-link.html')
+    @include('shared/layout/header.html', { "activePage": "home" })
+
+    <main id="main" class="page__content" tabindex="-1" data-page-content>
+      @include('shared/sections/hero.html')
+      @include('shared/sections/services.html')
+      @include('shared/sections/about.html')
+      @include('shared/sections/blog.html')
+      @include('shared/sections/contact.html')
+    </main>
+
+    @include('shared/layout/footer.html')
+  </body>
+</html>

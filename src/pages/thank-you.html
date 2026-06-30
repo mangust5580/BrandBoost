@@ -1,0 +1,30 @@
+<!doctype html>
+<html class="page" lang="ru">
+  @include('shared/head/index.html', {
+  "pageTitle": "Спасибо — BrandBoost",
+  "pageDescription": "Демо-страница подтверждения отправки формы для портфолио BrandBoost.",
+  "pageCanonical": "https://mangust5580.github.io/BrandBoost/thank-you.html",
+  "pageRobots": "noindex,nofollow",
+  "ogImage": "images/og/index.jpg"
+  })
+
+  <body data-page="thank-you">
+    @include('shared/layout/skip-link.html')
+    @include('shared/layout/header.html', { "activePage": "none" })
+
+    <main id="main" class="page__content" tabindex="-1" data-page-content>
+      <section class="section section--light" aria-labelledby="thanks-page-title" data-section="thanks">
+        <div class="container section__container">
+          <header class="section__header">
+            <h1 class="section__title" id="thanks-page-title">Спасибо, форма успешно проверена</h1>
+            <p class="section__lead">Это демонстрационная страница: данные не отправлялись и не сохранялись.</p>
+          </header>
+
+          <p><a href="index.html">Вернуться на главную</a></p>
+        </div>
+      </section>
+    </main>
+
+    @include('shared/layout/footer.html')
+  </body>
+</html>

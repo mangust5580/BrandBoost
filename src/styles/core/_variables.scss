@@ -1,0 +1,301 @@
+@use '../helpers' as *;
+
+$colors: (
+  'transparent': transparent,
+  'white-100': #fff,
+  'white-alpha-04': rgb(255 255 255 / 4%),
+  'white-alpha-100': rgb(255 255 255 / 6%),
+  'white-alpha-200': rgb(255 255 255 / 8%),
+  'white-alpha-300': rgb(255 255 255 / 12%),
+  'white-alpha-400': rgb(255 255 255 / 14%),
+  'white-alpha-500': rgb(255 255 255 / 18%),
+  'white-alpha-600': rgb(255 255 255 / 26%),
+  'white-alpha-700': rgb(255 255 255 / 80%),
+  'white-alpha-800': rgb(255 255 255 / 90%),
+  'white-alpha-900': rgb(255 255 255 / 96%),
+  'white-alpha-98': rgb(255 255 255 / 98%),
+  'gray-50': #f1f5fc,
+  'gray-100': #f6f8fc,
+  'gray-500': #6b7280,
+  'gray-600': #576075,
+  'gray-900': #111827,
+  'slate-500-alpha-86': rgb(112 125 152 / 86%),
+  'slate-560-alpha-98': rgb(93 104 124 / 98%),
+  'blue-100': #93a7e8,
+  'blue-200': #7589cd,
+  'blue-300': #576bb3,
+  'blue-400': #31436f,
+  'blue-500': #2a3f63,
+  'blue-600': #26344a,
+  'blue-700': #25395a,
+  'blue-800': #243756,
+  'blue-900': #223552,
+  'blue-100-alpha-86': rgb(207 221 244 / 86%),
+  'blue-130-alpha-96': rgb(172 196 235 / 96%),
+  'blue-150-alpha-92': rgb(220 230 252 / 92%),
+  'blue-160-alpha-88': rgb(181 194 224 / 88%),
+  'blue-170-alpha-62': rgb(209 220 248 / 62%),
+  'blue-180-alpha-74': rgb(213 223 247 / 74%),
+  'blue-500-alpha-15': rgb(114 148 220 / 15%),
+  'blue-500-alpha-20': rgb(114 148 220 / 20%),
+  'blue-deep-alpha-08': rgb(31 45 84 / 8%),
+  'blue-deep-alpha-12': rgb(31 45 84 / 12%),
+  'blue-deep-alpha-14': rgb(31 45 84 / 14%),
+  'indigo-400': #59608e,
+  'orange-100': #ffd59a,
+  'orange-200': #f7a35c,
+  'orange-300': #f8893d,
+  'orange-400': #ff982e,
+  'orange-500': #f2a326,
+  'orange-600': #f08a16,
+  'orange-700': #ee8307,
+  'orange-800': #d96b0a,
+  'orange-900': #b85000,
+  'orange-alpha-100': rgb(255 202 124 / 18%),
+  'orange-alpha-200': rgb(255 214 153 / 20%),
+  'orange-alpha-300': rgb(255 227 184 / 28%),
+  'orange-alpha-400': rgb(245 177 74 / 40%),
+  'orange-alpha-500': rgb(255 247 205 / 84%),
+  'orange-10-alpha-92': rgb(253 241 228 / 92%),
+  'orange-30-alpha-98': rgb(252 231 207 / 98%),
+  'orange-40-alpha-92': rgb(255 215 155 / 92%),
+  'orange-300-alpha-26': rgb(248 137 61 / 26%),
+  'orange-400-alpha-24': rgb(255 152 46 / 24%),
+  'orange-strong-alpha-00': rgb(245 133 85 / 0%),
+  'orange-strong-alpha-10': rgb(245 133 85 / 10%),
+  'orange-strong-alpha-16': rgb(245 133 85 / 16%),
+  'orange-strong-alpha-24': rgb(245 133 85 / 24%),
+  'orange-strong-alpha-54': rgb(245 133 85 / 54%),
+  'pink-100': #e88369,
+  'pink-200': #c76d87,
+  'brown-alpha-100': rgb(122 48 0 / 20%),
+  'brown-alpha-200': rgb(122 48 0 / 22%),
+  'brown-alpha-300': rgb(122 48 0 / 24%),
+  'black-alpha-100': rgb(0 0 0 / 8%)
+);
+$spacing: (
+  '2xs': 4px,
+  'xs': 8px,
+  'sm': 12px,
+  'md': 16px,
+  'lg': 20px,
+  'xl': 24px,
+  '2xl': 32px,
+  '3xl': 40px,
+  '4xl': 48px,
+  '5xl': 56px
+);
+$role-colors: (
+  'transparent': var(--color-transparent),
+  'text-primary': var(--color-gray-900),
+  'text-secondary': var(--color-gray-600),
+  'text-muted': var(--color-slate-560-alpha-98),
+  'text-brand': var(--color-blue-800),
+  'text-brand-strong': var(--color-blue-900),
+  'text-inverse': var(--color-white-100),
+  'text-inverse-muted': var(--color-white-alpha-800),
+  'text-inverse-strong': var(--color-white-alpha-900),
+  'text-placeholder': var(--color-slate-500-alpha-86),
+  'text-accent-emphasis': var(--color-orange-900),
+  'text-accent-strong': var(--color-orange-800),
+  'text-accent-strong-hover': var(--color-orange-900),
+  'surface-page': var(--color-gray-100),
+  'surface-page-tint': var(--color-gray-50),
+  'surface-base': var(--color-white-100),
+  'surface-base-soft': var(--color-white-alpha-98),
+  'surface-hero': var(--color-blue-400),
+  'surface-inverse': var(--color-blue-600),
+  'surface-inverse-strong': var(--color-blue-800),
+  'surface-field-inverse': var(--color-white-alpha-04),
+  'surface-glass': var(--color-white-alpha-100),
+  'surface-glass-strong': var(--color-white-alpha-200),
+  'surface-glass-hover': var(--color-white-alpha-300),
+  'surface-accent-soft': var(--color-orange-10-alpha-92),
+  'surface-accent-soft-hover': var(--color-orange-30-alpha-98),
+  'surface-card-cool': var(--color-blue-150-alpha-92),
+  'surface-card-cool-hover': var(--color-blue-130-alpha-96),
+  'surface-check': var(--color-white-alpha-700),
+  'border-soft': var(--color-blue-100-alpha-86),
+  'border-soft-hover': var(--color-blue-130-alpha-96),
+  'border-field': var(--color-blue-130-alpha-96),
+  'border-field-inverse': var(--color-blue-180-alpha-74),
+  'border-focus-inverse': var(--color-orange-40-alpha-92),
+  'border-glass': var(--color-white-alpha-500),
+  'border-glass-hover': var(--color-white-alpha-600),
+  'border-glass-active': var(--color-white-alpha-400),
+  'border-inverse-strong': var(--color-white-alpha-700),
+  'border-accent-soft': var(--color-orange-alpha-200),
+  'border-accent-strong': var(--color-orange-alpha-400),
+  'border-accent-fade': var(--color-orange-strong-alpha-24),
+  'border-accent-strong-fade': var(--color-orange-strong-alpha-54),
+  'accent-primary': var(--color-orange-600),
+  'accent-focus': var(--color-orange-300),
+  'text-inverse-soft': var(--color-blue-180-alpha-74),
+  'focus-ring': var(--color-orange-400-alpha-24),
+  'focus-ring-strong': var(--color-orange-300-alpha-26),
+  'shadow-soft': var(--color-blue-deep-alpha-08),
+  'shadow': var(--color-blue-deep-alpha-12),
+  'shadow-strong': var(--color-blue-deep-alpha-14),
+  'shadow-accent-soft': var(--color-orange-strong-alpha-10),
+  'shadow-accent': var(--color-orange-strong-alpha-16),
+  'shadow-cool-soft': var(--color-blue-500-alpha-15),
+  'shadow-cool': var(--color-blue-500-alpha-20),
+  'overlay-accent': var(--color-orange-strong-alpha-16),
+  'overlay-accent-none': var(--color-orange-strong-alpha-00)
+);
+$layout: (
+  'viewport-min': 320px,
+  'anchor-offset': var(--space-md),
+  'container-max': 1400px,
+  'container-inline': var(--space-md),
+  'header-height': 76px,
+  'hero-inline-desktop': var(--space-xl),
+  'hero-inline-tablet': var(--space-lg),
+  'hero-inline-compact': 18px,
+  'hero-inline-mobile': var(--space-md),
+  'section-padding-y-lg': #{fluid(72, 56)},
+  'section-padding-y-md': #{fluid(56, 48)},
+  'section-padding-y-sm': #{fluid(48, 40)},
+  'section-header-gap': #{fluid(44, 28)}
+);
+$control: (
+  'button-height-sm': 36px,
+  'button-height-md': 44px,
+  'button-height-lg': 52px,
+  'button-padding-inline-sm': 18px,
+  'button-padding-inline-md': 24px,
+  'button-padding-inline-lg': 30px,
+  'button-radius-pill': var(--radius-full),
+  'button-radius-rect': var(--radius-md),
+  'field-height': 48px,
+  'field-padding-inline': 14px,
+  'field-radius': 10px,
+  'textarea-min-height': 136px,
+  'textarea-padding-block': 12px,
+  'textarea-padding-inline': 14px
+);
+$radius: (
+  'sm': 10px,
+  'md': 14px,
+  'lg': 16px,
+  'xl': 22px,
+  'full': 999px
+);
+$z-index: (
+  'base': 0,
+  'decor': 1,
+  'content': 2,
+  'brand': 3,
+  'header': 30,
+  'header-mobile': 60,
+  'header-progress': 70,
+  'menu-backdrop': 50,
+  'menu-panel': 51,
+  'menu-toggle': 52,
+  'skip-link': 401
+);
+$gradients: (
+  'brand-surface-strong-horizontal': linear-gradient(
+    90deg,
+    var(--color-blue-800) 0%,
+    var(--color-blue-500) 50%,
+    var(--color-blue-900) 100%
+  ),
+  'brand-surface-strong-vertical': linear-gradient(
+    180deg,
+    var(--color-blue-800) 0%,
+    var(--color-blue-700) 56%,
+    var(--color-blue-900) 100%
+  ),
+  'accent-action-vertical': linear-gradient(
+    180deg,
+    var(--color-orange-500) 0%,
+    var(--color-orange-700) 62%,
+    var(--color-orange-800) 100%
+  ),
+  'brand-surface-horizontal': linear-gradient(
+    90deg,
+    var(--color-blue-400) 0%,
+    var(--color-blue-300) 100%
+  ),
+  'brand-surface-angled': linear-gradient(
+    179.63deg,
+    var(--color-blue-400) 0.32%,
+    var(--color-indigo-400) 99.68%
+  ),
+  'accent-orb-radial': radial-gradient(
+    52.87% 36.69% at 32.45% 41.93%,
+    var(--color-orange-100) 0%,
+    var(--color-orange-200) 28%,
+    var(--color-pink-100) 62%,
+    var(--color-pink-200) 100%
+  ),
+  'accent-orb-radial-soft': radial-gradient(
+    39.05% 39.05% at 38% 50%,
+    var(--color-orange-alpha-300) 0%,
+    var(--color-transparent) 100%
+  ),
+  'accent-orb-radial-compact': radial-gradient(
+    circle at 30% 30%,
+    var(--color-orange-100) 0%,
+    var(--color-orange-200) 28%,
+    var(--color-pink-100) 62%,
+    var(--color-pink-200) 100%
+  ),
+  'accent-action-vertical-strong': linear-gradient(
+    180deg,
+    var(--color-orange-600) 0%,
+    var(--color-orange-800) 55%,
+    var(--color-orange-900) 100%
+  ),
+  'brand-glow-radial': radial-gradient(
+    50% 50% at 50% 50%,
+    var(--color-blue-100) 0%,
+    var(--color-blue-200) 35%,
+    var(--color-transparent) 100%
+  ),
+  'accent-glow-radial': radial-gradient(
+    circle,
+    var(--color-orange-alpha-500) 0%,
+    var(--color-orange-alpha-100) 56%,
+    var(--color-transparent) 76%
+  )
+);
+$shadows: (
+  'sm': 0 4px 10px var(--color-brown-alpha-100),
+  'md': 0 6px 14px var(--color-brown-alpha-200),
+  'lg': 0 8px 18px var(--color-brown-alpha-300),
+  'header': 0 8px 20px var(--role-shadow-soft),
+  'header-compact': 0 6px 14px var(--role-shadow-soft),
+  'button-secondary': 0 4px 10px var(--role-shadow-soft),
+  'button-icon': 0 10px 18px var(--role-shadow-accent-soft),
+  'button-icon-hover': 0 14px 22px var(--role-shadow-accent),
+  'card-soft': 0 10px 22px var(--role-shadow-soft),
+  'card': 0 14px 30px var(--role-shadow-soft),
+  'card-lift': 0 16px 28px var(--role-shadow),
+  'card-hover': 0 18px 34px var(--role-shadow),
+  'card-strong-hover': 0 18px 34px var(--role-shadow-strong),
+  'icon-accent': 0 10px 20px var(--role-shadow-accent-soft),
+  'icon-cool': 0 10px 20px var(--role-shadow-cool-soft),
+  'icon-accent-hover': 0 14px 24px var(--role-shadow-accent),
+  'icon-cool-hover': 0 14px 24px var(--role-shadow-cool),
+  'focus': 0 0 0 3px var(--role-focus-ring)
+);
+$font-families: (
+  'main': ('Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', 'Noto Sans', arial, sans-serif)
+);
+
+:root {
+  @include emit-vars('color', $colors);
+  @include emit-vars('space', $spacing);
+  @include emit-vars('role', $role-colors);
+  @include emit-vars('layout', $layout);
+  @include emit-vars('control', $control);
+  @include emit-vars('radius', $radius);
+  @include emit-vars('z-index', $z-index);
+  @include emit-vars('gradient', $gradients);
+  @include emit-vars('shadow', $shadows);
+  @include emit-vars('font-family', $font-families);
+
+  --header-height: var(--layout-header-height);
+}

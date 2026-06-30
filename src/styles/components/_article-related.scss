@@ -1,0 +1,55 @@
+@use '../helpers' as *;
+
+.article-related {
+  margin-top: var(--space-xl);
+}
+
+.article-related__title {
+  margin: 0;
+  color: var(--role-text-brand-strong);
+  font-size: var(--type-h5);
+  line-height: var(--leading-h5);
+}
+
+.article-related__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.article-related__item {
+  display: block;
+  padding: var(--space-lg);
+  border: 1px solid var(--role-border-soft);
+  border-radius: var(--radius-md);
+  background: var(--role-surface-base);
+
+  @include transition((border-color, box-shadow, transform), 180ms);
+}
+
+.article-related__item-title {
+  margin: 0;
+  color: var(--role-text-brand-strong);
+  font-size: var(--type-h6);
+  line-height: var(--leading-h6);
+}
+
+.article-related__item-text {
+  margin: var(--space-xs) 0 0;
+  color: var(--role-text-secondary);
+  font-size: var(--type-small);
+  line-height: var(--leading-small);
+}
+
+.article-related__item:is(:hover, :focus-visible) {
+  border-color: var(--role-border-soft-hover);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+@include media-down(lg) {
+  .article-related__grid {
+    grid-template-columns: 1fr;
+  }
+}

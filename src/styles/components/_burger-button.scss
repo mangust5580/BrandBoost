@@ -1,0 +1,88 @@
+@use '../helpers' as *;
+
+.header__burger.burger-button {
+  display: none;
+}
+
+.burger-button {
+  padding: 0;
+  border: 1px solid var(--role-border-glass);
+  border-radius: var(--radius-md);
+  background: var(--role-surface-glass-strong);
+  color: var(--role-text-inverse);
+  cursor: pointer;
+
+  @include flex-center(true);
+  @include square(48px);
+  @include transition((background-color, border-color, transform), 200ms);
+
+  @include hover {
+    border-color: var(--role-border-glass-hover);
+    background: var(--role-surface-glass-hover);
+  }
+
+  &:focus-visible {
+    border-color: var(--role-border-glass-hover);
+    outline: none;
+    background: var(--role-surface-glass-hover);
+  }
+}
+
+.burger-button__svg {
+  @include square(28px);
+}
+
+.burger-button__line {
+  fill: none;
+  stroke: currentcolor;
+  stroke-dasharray: 60 207;
+  stroke-linecap: round;
+  stroke-width: 6;
+
+  @include transition(
+    (stroke-dasharray, stroke-dashoffset),
+    420ms,
+    cubic-bezier(0.4, 0, 0.2, 1)
+  );
+}
+
+.burger-button__line--2 {
+  stroke-dasharray: 60 60;
+}
+
+.burger-button.is-active .burger-button__line {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+}
+
+.burger-button.is-active .burger-button__line--2 {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+}
+
+.burger-button:not(.is-active) .burger-button__line--3 {
+  stroke-dasharray: 30 207;
+  stroke-dashoffset: -30;
+}
+
+@include media-down(md) {
+  .header__burger.burger-button {
+    z-index: var(--z-index-menu-toggle);
+    display: inline-flex;
+    order: 3;
+    justify-self: end;
+  }
+
+  .header.is-open .burger-button {
+    border-color: var(--role-border-glass-active);
+    background: var(--role-surface-glass);
+  }
+}
+
+@include media-down(sm) {
+  .burger-button {
+    border-radius: var(--radius-sm);
+
+    @include square(44px);
+  }
+}

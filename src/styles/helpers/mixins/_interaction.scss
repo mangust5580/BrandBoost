@@ -1,0 +1,113 @@
+@use 'sass:list';
+
+@mixin transition(
+  $properties,
+  $duration: 250ms,
+  $easing: ease-in-out
+) {
+  $transitions: ();
+
+  @each $property in $properties {
+    $transitions: list.append(
+      $transitions,
+      #{$property} $duration $easing,
+      $separator: comma
+    );
+  }
+
+  transition: $transitions;
+}
+
+@mixin transition-base(
+  $duration: 250ms,
+  $easing: ease-in-out
+) {
+  @include transition(
+    (color, background-color, border-color, box-shadow, opacity, transform),
+    $duration,
+    $easing
+  );
+}
+
+@mixin transition-color(
+  $duration: 250ms,
+  $easing: ease-in-out
+) {
+  @include transition(color, $duration, $easing);
+}
+
+@mixin transition-background(
+  $duration: 250ms,
+  $easing: ease-in-out
+) {
+  @include transition(background-color, $duration, $easing);
+}
+
+@mixin transition-border(
+  $duration: 250ms,
+  $easing: ease-in-out
+) {
+  @include transition(border-color, $duration, $easing);
+}
+
+@mixin transition-opacity(
+  $duration: 250ms,
+  $easing: ease-in-out
+) {
+  @include transition(opacity, $duration, $easing);
+}
+
+@mixin transition-transform(
+  $duration: 250ms,
+  $easing: ease-in-out
+) {
+  @include transition(transform, $duration, $easing);
+}
+
+@mixin transition-shadow(
+  $duration: 250ms,
+  $easing: ease-in-out
+) {
+  @include transition(box-shadow, $duration, $easing);
+}
+
+@mixin ring-shadow(
+  $ring-color: var(--role-accent-focus),
+  $separator-color: var(--role-surface-page),
+  $inner-width: 2px,
+  $outer-width: 6px
+) {
+  box-shadow:
+    0 0 0 $inner-width $separator-color,
+    0 0 0 $outer-width $ring-color;
+}
+
+@mixin focus-visible(
+  $ring-color: var(--role-accent-focus),
+  $separator-color: var(--role-surface-page),
+  $inner-width: 2px,
+  $outer-width: 6px
+) {
+  &:focus-visible {
+    outline: none;
+
+    @include ring-shadow($ring-color, $separator-color, $inner-width, $outer-width);
+  }
+}
+
+@mixin focus-within-ring(
+  $ring-color: var(--role-accent-focus),
+  $separator-color: var(--role-surface-page),
+  $inner-width: 2px,
+  $outer-width: 6px
+) {
+  &:focus-within {
+    @include ring-shadow($ring-color, $separator-color, $inner-width, $outer-width);
+  }
+}
+
+@mixin reduce-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
